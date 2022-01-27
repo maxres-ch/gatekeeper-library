@@ -1,8 +1,7 @@
 {{- $kinds := list }}
-{{- range .Values.constraints  }}
-{{ $kinds = append $kinds .kind }}
+{{- range .Values.constrainttemplates }}
+{{ $kinds = append $kinds .metadata.name }}
 {{- end }}
-
 apiVersion: v1
 kind: ServiceAccount
 metadata:

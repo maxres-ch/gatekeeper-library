@@ -1,10 +1,4 @@
-{{- $kinds := list }}
-{{- range .Values.constraints  }}
-{{ $kinds = append $kinds .kind }}
-{{- end }}
-
-{{- $files := .Files }}
-{{- range $kinds | uniq }}
-{{ $files.Get (printf "generated/%v.yaml" (lower .)) }}
+{{- range .Values.constrainttemplates }} 
+{{ .  | toYaml }}
 ---
 {{- end }}
